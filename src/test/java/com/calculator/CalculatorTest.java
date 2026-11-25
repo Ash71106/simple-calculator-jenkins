@@ -15,4 +15,11 @@ public class CalculatorTest {
     public void testSubtract() {
         assertEquals(2, calc.subtract(5, 3));
     }
+
+    @Test
+    public void testIsPositive() {
+        assertEquals(true, calc.isPositive(5));
+        assertEquals(false, calc.isPositive(-2));
+        assertEquals(false, calc.isPositive(0));
+    }
 }
