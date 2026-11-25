@@ -3,7 +3,7 @@ pipeline {
 
     tools {
         maven 'Maven-3.10'
-        jdk 'JDK 25'
+        jdk 'JDK 27'
     }
 
     stages {
@@ -17,14 +17,14 @@ pipeline {
         stage('Static Verification') {
             steps {
                 echo '🔍 Checking Maven project layout rules...'
-                bat 'mvn validate'
+                sh 'mvn validate'
             }
         }
 
         stage('Compilation & Automated Testing') {
             steps {
                 echo '⚙️ Compiling class layers and verifying test logic stability...'
-                bat 'mvn clean package'
+                sh 'mvn clean package'
             }
             post {
                 always {
