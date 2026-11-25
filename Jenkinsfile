@@ -33,6 +33,15 @@ pipeline {
                 }
             }
         }
+
+        stage('SonarQube Analysis') {
+            steps {
+                echo '🔎 Starting SonarQube analysis...'
+                withSonarQubeEnv('SonarQube-Local') {
+                    sh 'mvn sonar:sonar'
+                }
+            }
+        }
     }
 
     post {
